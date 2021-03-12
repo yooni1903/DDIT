@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="Vo" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="VO"/>
+			<item value="vo"/>
+			<item value="버퍼"/>
+			<item value="입력 버퍼 비우기"/>
+			<item value="get"/>
+			<item value="next"/>
+			<item value="nextLine"/>
+			<item value="nextline"/>
+			<item value="scan"/>
+			<item value="syn"/>
+		</list>
+		<list key="replacehistory">
+			<item value="next"/>
+			<item value="stuList"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="261" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="381" key="DIALOG_HEIGHT"/>
+		<item value="334" key="DIALOG_Y_ORIGIN"/>
+		<item value="838" key="DIALOG_X_ORIGIN"/>
+	</section>
+</section>
