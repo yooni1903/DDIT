@@ -176,43 +176,43 @@ public class DaedeokHotel {
 
 }
 
-class Room{
-	private int roomNumber;
-	private String roomType;
-	private String guestName;
-	
-	
-
-	public Room(int roomNumber, String roomType) {
-		super();
-		this.roomNumber = roomNumber;
-		this.roomType = roomType;
-	}
-
-	public int getRoomNumber() {
-		return roomNumber;
-	}
-
-	public void setRoomNumber(int roomNumber) {
-		this.roomNumber = roomNumber;
-	}
-
-	public String getRoomType() {
-		return roomType;
-	}
-
-	public void setRoomType(String roomType) {
-		this.roomType = roomType;
-	}
-
-	public String getGuestName() {
-		return guestName;
-	}
-
-	public void setGuestName(String guestName) {
-		this.guestName = guestName;
-	}
-	
-	
-	
-}
+//class Room{
+//	private int roomNumber;
+//	private String roomType;
+//	private String guestName;
+//	
+//	
+//
+//	public Room(int roomNumber, String roomType) {
+//		super();
+//		this.roomNumber = roomNumber;
+//		this.roomType = roomType;
+//	}
+//
+//	public int getRoomNumber() {
+//		return roomNumber;
+//	}
+//
+//	public void setRoomNumber(int roomNumber) {
+//		this.roomNumber = roomNumber;
+//	}
+//
+//	public String getRoomType() {
+//		return roomType;
+//	}
+//
+//	public void setRoomType(String roomType) {
+//		this.roomType = roomType;
+//	}
+//
+//	public String getGuestName() {
+//		return guestName;
+//	}
+//
+//	public void setGuestName(String guestName) {
+//		this.guestName = guestName;
+//	}
+//	
+//	
+//	
+//}
