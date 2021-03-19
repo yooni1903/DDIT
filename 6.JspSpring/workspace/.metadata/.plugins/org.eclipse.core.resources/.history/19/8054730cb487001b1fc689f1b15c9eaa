@@ -1,0 +1,14 @@
+package kr.or.ddit.servlet03.view;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
+public class XmlView extends AbstactView{
+
+	@Override
+	public void mergeModelAndView(Object target, HttpServletResponse resp) throws IOException {
+		
+	}
+
+}

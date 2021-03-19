@@ -1,0 +1,45 @@
+<html>
+<head>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			const SRCPTRN = "%A?%N=%V";
+// 			console.log($("#image"));
+			$("#image").on("change", function(){ /* 콜백함수 */
+// 				console.log(this.value);	// html
+// 				console.log($(this).val());	// jquery
+// 				this.form.submit();
+				// img 태그 생성
+				console.log($("form")[0]);
+				var action = $("form")[0].action;
+				var name = this.name;
+				var value = this.value;
+				console.log(value);
+				src = SRCPTRN.replace("%A", action).replace("%N", name).replace("%V", value);
+				var img = $("<img>").attr("src", src);
+				// imageArea에 img태그를 innerHTML로 삽입
+				$("#imageArea").html(img);
+			});
+		});
+		
+	</script>
+</head>
+<body>
+<h4>%today%</h4>
+<form action = 'image.do'>
+<select multiple name="image" id ="image">
+	%options%
+</select>
+<input type="submit" value="전송" style="background-color:red;" />
+</form>
+<div id="imageArea"></div>
+<script type="text/javascript">
+// 	var select = document.querySelector('#image');
+// 	select.onchange = function(event){
+// 		event.target.form.submit();
+// 	}
+	
+	
+</script>
+</body>
+</html>

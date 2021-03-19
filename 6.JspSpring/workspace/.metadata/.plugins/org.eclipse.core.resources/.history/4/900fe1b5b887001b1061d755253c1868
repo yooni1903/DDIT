@@ -1,0 +1,24 @@
+<%@page import="java.util.Locale"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>04/localeDesc.jsp</title>
+</head>
+<body>
+<h4>Locale </h4>
+<pre>
+	: 언어나 지역이나 문화적 특성들을 캡슐화한 객체
+	locale text : 언어코드_국가(지역)코드
+	<%=request.getHeader("accept-language") %>
+	<%
+		Locale locale =  request.getLocale();
+		out.println(locale.getDisplayLanguage());
+		out.println(locale.getDisplayCountry());
+		Locale[] locales = Locale.getAvailableLocales();
+		%>
+</pre>
+</body>
+</html>

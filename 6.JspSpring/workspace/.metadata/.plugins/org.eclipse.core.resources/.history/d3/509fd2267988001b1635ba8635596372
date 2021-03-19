@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>05/cacheControl.jsp</title>
+</head>
+<body>
+<h4>캐시 제어</h4>
+<pre>
+	캐시 제어를 위한 응답 헤더
+	1) Cache-Control(Http 1.1) : public(공용 캐시로 저장, gateway 뒤에 있는 프록시 서버에 저장),
+								 private(자신의 브라우저에 캐시 저장),
+								 no-cache(no-store) -> 캐시 저장 안함
+			캐시 만료를 지정할 때 : max-age(초단위로 가져온다.)
+	2) Paragma(Http 1.0): public(공용 캐시로 저장, gateway 뒤에 있는 프록시 서버에 저장),
+						  private(자신의 브라우저에 캐시 저장),
+						  no-cache(no-store) -> 캐시 저장 안함
+	3) Expires : 캐시 만료 시점(date)
+	
+	<%
+		response.setHeader("Cache-Control", "no-cache");
+	%>
+</pre>
+<!-- application.getContextPath -> request.getContextPath()와 동일 -->
+<img src="<%=application.getContextPath() %>/images/spongebob.png"/>
+
+</body>
+</html>

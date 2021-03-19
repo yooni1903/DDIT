@@ -1,0 +1,67 @@
+package kr.or.ddit.servlet03;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import kr.or.ddit.enumpkg.OperatorType;
+import kr.or.ddit.vo.CalculateVO;
+
+@WebServlet("/03/calculator")
+public class CalculateServlet extends HttpServlet{
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
+		// 요청 -> 분석(검증)
+		int status = bindAndValidate(req);
+		if(status != HttpServletResponse.SC_OK) {
+			resp.sendError(status);
+			return;
+		}
+		// -> 연산
+		CalculateVO vo = (CalculateVO) req.getAttribute("vo");
+		OperatorType operator =  vo.getOperator();
+		double result = operator.operate(vo.getLeft(), vo.getRight());
+		
+		// -> 응답 -> 전송
+		
+	}
+
+	private int bindAndValidate(HttpServletRequest req) {
+		// 보낸 값을 검증하는 메서드
+		
+		int status = HttpServletResponse.SC_OK;		//미리 ok로 생성하고 통과하지 못하는 경우를 잡아내자!
+		String leftParam = req.getParameter("left");
+		String rightParam = req.getParameter("right");
+		String operatorParam = req.getParameter("operator");
+		
+		double left = -1;
+		double right = -1;
+		OperatorType operator = null;
+		
+		
+		if(leftParam == null || rightParam == null || operatorParam == null) {
+			status = HttpServletResponse.SC_BAD_REQUEST;
+		}else {
+			try {
+				left = Double.parseDouble(leftParam);
+				right = Double.parseDouble(rightParam);
+				
+				operator = OperatorType.valueOf(operatorParam);
+			}catch(IllegalArgumentException e) {
+				status = HttpServletResponse.SC_BAD_REQUEST;
+			}
+		}
+		
+		if(status==HttpServletResponse.SC_OK) {
+			CalculateVO vo = new CalculateVO(left, right, operator);
+			req.setAttribute("vo", vo);
+		}
+		
+		return status;
+	}
+}
