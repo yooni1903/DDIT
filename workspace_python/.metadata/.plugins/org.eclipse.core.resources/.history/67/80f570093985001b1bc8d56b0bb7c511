@@ -1,0 +1,82 @@
+import sys
+from PyQt5.QtWidgets import *
+from PyQt5 import uic, QtGui, QtCore
+
+form_class = uic.loadUiType("myomok.ui")[0]
+
+class MyWindow(QMainWindow, form_class):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.arr2D = [
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0]
+            ]
+        self.arr2pb = []
+        self.flag_wb = True
+        
+        for i in range(10):
+            line = []
+            for j in range(10):
+                pb = QPushButton(self)
+                pb.setIcon(QtGui.QIcon('0.png'))
+                pb.setIconSize(QtCore.QSize(40,40))
+                pb.setGeometry(QtCore.QRect(40*j, 40*i, 40, 40))
+                pb.clicked.connect(self.myclick)
+                pb.setToolTip("{},{}".format(i, j))
+                line.append(pb)
+            self.arr2pb.append(line)
+        
+        self.myrender()
+        
+        
+    def myrender(self):    
+        for i in range(10):
+            for j in range(10):
+                if self.arr2D[i][j] == 0:
+                    self.arr2pb[i][j].setIcon(QtGui.QIcon('0.png'))
+                if self.arr2D[i][j] == 1:
+                    self.arr2pb[i][j].setIcon(QtGui.QIcon('1.png'))
+                if self.arr2D[i][j] == 2:
+                    self.arr2pb[i][j].setIcon(QtGui.QIcon('2.png'))
+        
+    def myclick(self): 
+        str = self.sender().toolTip()
+        arr = str.split(",")
+        i = int(arr[0])
+        j = int(arr[1])
+        
+        if self.arr2D[i][j] > 0:
+            return
+        
+        int_wb = 0
+        if self.flag_wb == True:
+            self.arr2D[i][j] = 1
+            int_wb = 1
+        else:
+            self.arr2D[i][j] = 2
+            int_wb = 2
+        self.myrender()
+        
+        up = self.getUP(i,j,int_wb)
+        
+        self.flag_wb = not self.flag_wb
+     
+    def getUP(self,i,j,int_wb): 
+        pass  
+       
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    myWindow =MyWindow()
+    myWindow.show()
+    app.exec_()
+        

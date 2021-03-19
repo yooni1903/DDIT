@@ -1,0 +1,10 @@
+import pymysql
+
+connect = pymysql.connect(host='localhost', user='root', password='패스워드', db='DB명',\
+                          charset='utf8mb4')
+cur = connect.cursor()
+
+
+query = "SELECT * FROM 테이블명"
+cur.execute(query)
+connect.commit()

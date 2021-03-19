@@ -1,0 +1,4 @@
+str = "12345"
+
+txt = str[3:len(str)]
+print(txt)

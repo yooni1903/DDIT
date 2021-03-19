@@ -1,0 +1,5 @@
+print("hello")
+
+# 1초 쉬는 명령어 
+
+print("hello2")
