@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <h1>Servlet 요청 연습</h1>
+    <hr>
+    <h2>GET방식 요청 방법 1 ==> 링크 방식</h2>
+    <a href="http://localhost/servletTest/servletTest03.do">Get 방식 요청1</a>
+    <hr>
+    
+    <script>
+    	// 자바스크립트를 이용한 GET 방식 요청
+    	//location.href = "http://localhost/servletTest/servletTest03.do"
+    </script>
+    
+    <h2>GET방식 요청 방법 2 ==> form 태그의 method속성을 생략하거나 'get'으로 설정한 경우</h2>
+    <form action="http://localhost/servletTest/servletTest03.do" method="get">
+    	<input type="button" id="btn" value="스크립트GET방식요청">
+        <input type="submit" value="Get 방식 요청2">
+    </form>
+    <br><hr>
+    
+    <h2>POST방식 요청 방버 ==> form 태그의 method 속성을 'post'로 설정한 경우</h2>
+     <form action="http://localhost/servletTest/servletTest03.do" method="post">
+        <input type="submit" value="Post 방식 요청">
+    </form>
+    
+    <br><br>
+    
+    <script>
+    	var btn = document.getElementById("btn");
+    	btn.onclick = function(){
+    		// 자바스크립트를 이용한 GET 방식 요청
+        	location.href = "http://localhost/servletTest/servletTest03.do"
+    	}
+    </script>
+</body>
+</html>

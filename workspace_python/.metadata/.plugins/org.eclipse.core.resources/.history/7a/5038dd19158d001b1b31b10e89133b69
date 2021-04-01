@@ -1,0 +1,8 @@
+from flask import Flask, render_template, request, jsonify
+
+app = Flask(__name__)
+@app.route("/")     # 웰컴 페이지의 의미가 있다.
+@app.route("/emp")
+def emp():
+    list = MyEmpDao().getEmps()
+    return render_template('emp.html', list=list)

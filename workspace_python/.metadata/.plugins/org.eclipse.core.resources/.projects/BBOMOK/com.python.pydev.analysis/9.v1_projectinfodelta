@@ -1,0 +1,14 @@
+INSTUPtrain_neat
+D:\workspace_python\BBOMOK\train_neat.py
+INFOS:&&3|1|2|0|3|9|1&&3|4|2|0|3|11|1&&2|5|2|0|3|13|5&&2|6|2|0|3|60|5&&3|7|2|0|3|70|1&&3|8|2|0|3|72|1&&3|9|2|0|3|73|1&&3|10|2|0|3|78|1&&3|11|2|0|3|79|1
+runs_per_net=1
+pop=8
+max_generation=4
+winner=11
+train_neat=2
+stats=9
+pe=10
+eval_genomes=6
+D:\workspace_python\BBOMOK\train_neat.py=3
+eval_genome=5
+config=7

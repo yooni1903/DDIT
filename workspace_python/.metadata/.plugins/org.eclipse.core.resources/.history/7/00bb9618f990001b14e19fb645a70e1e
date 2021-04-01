@@ -1,0 +1,20 @@
+from keras import layers
+from keras import models
+from keras.datasets import mnist
+from keras.utils import to_categorical
+from keras.models import load_model
+import numpy as np
+import cv2
+
+img = cv2.imread('0.jfif', 1)
+
+img_28 = cv2.resize(img, (28, 28))
+img_gray = cv2.cvtColor(img_28,cv2.COLOR_BGR2GRAY)
+# myimage_shape (1, 784)
+myimage = img_gray.reshape(1, 784)
+
+model = load_model('mymodel.h5')
+predictions = model.predict(myimage)
+
+print(predictions)
+print(np.argmax(predictions[0]))

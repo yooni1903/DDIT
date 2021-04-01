@@ -1,0 +1,31 @@
+<html>
+<head>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			console.log($("#image"));
+			$("#image").on("change", function(){ /* 콜백함수 */
+				console.log(this);
+			});
+		});
+		
+	</script>
+</head>
+<body>
+<h4>%today%</h4>
+<form action = 'image.do'>
+<select name="image" id ="image">
+	%options%
+</select>
+<input type="submit" value="전송" style="background-color:red;" />
+<script type="text/javascript">
+// 	var select = document.querySelector('#image');
+// 	select.onchange = function(event){
+// 		event.target.form.submit();
+// 	}
+	
+	
+</script>
+</form>
+</body>
+</html>

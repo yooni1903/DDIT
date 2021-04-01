@@ -1,0 +1,7 @@
+from selenium import webdriver
+
+driver = webdriver.Chrome('chromedriver.exe')
+
+url = 'http://localhost/MYSERVER/secret'
+driver.get(url)
+print(driver.get(url).page_source)

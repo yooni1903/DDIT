@@ -1,0 +1,5 @@
+package kr.or.ddit.servlet07;
+@web
+public class CookieGeneratorServlet {
+
+}

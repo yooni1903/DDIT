@@ -1,0 +1,72 @@
+<%@page import="java.sql.ResultSetMetaData"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>10/jdbcDesc.jsp</title>
+</head>
+<body>
+<h4>JDBC(Java DataBase Connectivity)</h4>
+<pre>
+	Facade 패턴 활용
+	
+	1. Driver를 찾아서, 빌드 패스에 추가
+	2. Driver 로딩(oracle.jdbc.driver.OracleDriver)
+	3. Connection 생성
+	4. 쿼리 객체 생성
+	5. 쿼리 실행
+	<%
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String user = "KDY11";
+		String password = "java";
+		Class.forName("oracle.jdbc.driver.OracleDriver");	// 드라이버를 메모리에 로딩시켜줌
+		Connection conn = DriverManager.getConnection(url, user, password);
+// 		out.println(conn);
+		Statement stmt = conn.createStatement();
+		String sql = "select property_name, property_value, description " 
+				+ "from database_properties";
+		ResultSet rs = stmt.executeQuery(sql);
+		ResultSetMetaData rsmd = rs.getMetaData();
+		int count = rsmd.getColumnCount();
+		String[] headers =new String[count];
+		for(int i = 1; i <= count; i++){
+			headers[i-1] = rsmd.getColumnName(i);
+		}
+		List<Map<String, Object>> dataList = new ArrayList<>();
+		
+		while(rs.next()){
+			Map<String, Object> record = new HashMap<>();
+			for(String colName : headers){
+				record.put(colName, rs.getString(colName));
+			}
+			dataList.add(record);
+		}
+	%>
+</pre>
+<table>
+	<thead>
+		<tr>
+			<%
+				for(String header : headers){
+					%>
+					<th><%=header %></th>
+					<%
+				}
+			%>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+</body>
+</html>

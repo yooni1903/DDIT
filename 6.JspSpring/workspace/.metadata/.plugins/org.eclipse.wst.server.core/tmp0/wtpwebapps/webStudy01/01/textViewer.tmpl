@@ -1,0 +1,13 @@
+<!-- 서블릿 두개 만들어야 됨 -->
+
+<html>
+<body>
+	<h4>Text file viewer</h4>
+	<select id='textFile'>   <!-- text 파일만 걸러서 select 출력 -->
+		%options%
+	</select>
+	
+	<!-- src 속성의 주소값 : ex) textView.do?textFile=filename(path?) -->
+	<iframe id='viewer' src=""></iframe>  <!-- 선택한 text 파일 내용을 출력 -->
+</body>
+</html>

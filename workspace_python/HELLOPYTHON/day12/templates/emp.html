@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원관리</title>
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+function fn_add(){
+	
+	var sabun = $('#sabun').val();
+	var name = $('#name').val();
+	var dept = $('#dept').val();
+	var mobile = $('#mobile').val();
+	
+	var param = {
+            'sabun': sabun,
+            'name':name,
+            'dept':dept,
+            'mobile':mobile
+        }
+	
+	$.ajax({
+        type: 'POST',
+        url: 'ins.ajax',
+        data: JSON.stringify(param),
+        dataType : 'JSON',
+        contentType: "application/json",
+        success: function(data){
+        	console.log(data);
+        	if(data.result== "success"){
+        		location.reload();
+        	}
+        },
+        error: function(request, status, error){
+        	console.log(error);
+        }
+    })
+}
+function fn_mod(){
+	var sabun = $('#sabun').val();
+	var name = $('#name').val();
+	var dept = $('#dept').val();
+	var mobile = $('#mobile').val();
+	
+	var param = {
+            'sabun': sabun,
+            'name':name,
+            'dept':dept,
+            'mobile':mobile
+        }
+	
+	$.ajax({
+        type: 'POST',
+        url: 'upd.ajax',
+        data: JSON.stringify(param),
+        dataType : 'JSON',
+        contentType: "application/json",
+        success: function(data){
+        	console.log(data);
+        	if(data.result== "success"){
+        		location.reload();
+        	}
+        },
+        error: function(request, status, error){
+        	console.log(error);
+        }
+    })
+}
+function fn_del(){
+	var sabun = $('#sabun').val();
+	
+	var param = {
+            'sabun': sabun
+        }
+	
+	$.ajax({
+        type: 'POST',
+        url: 'del.ajax',
+        data: JSON.stringify(param),
+        dataType : 'JSON',
+        contentType: "application/json",
+        success: function(data){
+        	console.log(data);
+        	if(data.result== "success"){
+        		location.reload();
+        	}
+        },
+        error: function(request, status, error){
+        	console.log(error);
+        }
+    })
+}
+
+function fn_detail(sabun,name,dept,mobile){
+	$('#sabun').val(sabun);
+	$('#name').val(name);
+	$('#dept').val(dept);
+	$('#mobile').val(mobile);
+	
+	
+}
+</script>
+
+</head>
+<body>
+
+
+
+
+<table border="2px">
+	<tr>
+		<td>
+			<table border=1>
+				<tr>
+					<th>사번</th>
+					<th>이름</th>
+					<th>부서</th>
+					<th>전화번호</th>
+				</tr>
+				
+				{% for e in list %}
+					<tr>
+						<td><a href = "javascript:fn_detail('{{e.sabun}}','{{e.name}}','{{e.dept}}','{{e.mobile}}')">{{e.sabun}}</a></td>
+						<td>{{e.name}}</td>
+						<td>{{e.dept}}</td>
+						<td>{{e.mobile}}</td>
+					</tr>
+				{% endfor%}
+			</table>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<td>사번</td>
+					<td>이름
+				</tr>
+			</table>
+			
+			<table>
+					<tr><td>사번</td>	<td><input type="text" id="sabun" /></td></tr>
+					<tr><td>이름</td>	<td><input type="text" id="name" /></td></tr>
+					<tr><td>부서</td>	<td><input type="text" id="dept" /></td></tr>
+					<tr><td>전화번호</td>	<td><input type="text" id="mobile" /></td></tr>
+					<tr>
+						<td colspan="2">
+							<input type="button" onclick="fn_add()" value="추가">
+							<input type="button" onclick="fn_mod()" value="수정">
+							<input type="button" onclick="fn_del()" value="삭제">
+						</td>
+					</tr>
+			
+			</table>
+		</td>
+	</tr>
+	
+	
+	
+</table>	
+	
+	
+</body>
+</html>

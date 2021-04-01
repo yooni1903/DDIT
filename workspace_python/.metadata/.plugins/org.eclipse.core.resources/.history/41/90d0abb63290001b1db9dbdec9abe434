@@ -1,0 +1,12 @@
+import cv2
+ 
+img = cv2.imread('image/lena.png', 1)
+grayImg = cv2.imread('images/grayLena.PNG', cv2.IMREAD_GRAYSCALE)
+
+cv2.imwrite('image/grayLena.png', grayImg)
+
+# cv2.imshow('Test Image',img)
+cv2.imshow('Test Image',grayImg)
+# cv2.imshow('frame3',img_alpha)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

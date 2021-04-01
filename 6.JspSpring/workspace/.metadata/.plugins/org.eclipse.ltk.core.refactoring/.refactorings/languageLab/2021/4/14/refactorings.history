@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DataAccessException.java&apos; to &apos;webStudy01/src/kr.or.ddit.exception&apos;&#x0D;&#x0A;- Original project: &apos;languageLab&apos;&#x0D;&#x0A;- Destination element: &apos;webStudy01/src/kr.or.ddit.exception&apos;&#x0D;&#x0A;- Original element: &apos;kr.or.ddit.exception.DataAccessException.java&apos;" description="Copy compilation unit" destination="=webStudy01/src&lt;kr.or.ddit.exception" element1="/src&lt;kr.or.ddit.exception{DataAccessException.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1617272336873" units="1" version="1.0"/>
+</session>

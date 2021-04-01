@@ -1,0 +1,16 @@
+INSTUPcreate_dataset
+D:\workspace_python\BBOMOK\create_dataset.py
+INFOS:&&3|1|2|0|3|9|1&&3|4|2|0|3|10|1&&3|5|2|0|3|11|1&&3|6|2|0|3|14|1&&3|7|2|0|3|18|9&&3|7|2|0|3|23|5&&3|8|2|0|3|26|5&&3|9|2|0|3|35|13&&3|9|2|0|3|37|13&&3|10|2|0|3|39|9&&3|11|2|0|3|43|9&&3|12|2|0|3|49|13&&3|13|2|0|3|50|13
+input_rot=12
+game_rule=1
+file_list=6
+base_path=4
+create_dataset=2
+output_rot=13
+output=11
+input=10
+output_path=5
+lines=7
+D:\workspace_python\BBOMOK\create_dataset.py=3
+board=8
+player=9
