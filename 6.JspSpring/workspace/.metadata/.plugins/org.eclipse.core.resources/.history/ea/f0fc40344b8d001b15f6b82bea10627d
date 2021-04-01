@@ -1,0 +1,94 @@
+<%@page import="java.util.Locale"%>
+<%@page import="java.text.DateFormatSymbols"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="static java.util.Calendar.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("utf-8");
+	String yearParam = request.getParameter("year");
+	String monthParam = request.getParameter("month");
+	
+	Locale locale = Locale.FRANCE;
+	Calendar calendar = getInstance(locale);
+	
+	if(yearParam != null && yearParam.matches("\\d{4}")){
+		calendar.set(YEAR, Integer.parseInt(yearParam));
+	}
+	if(monthParam !=null && monthParam.matches("\\d|1[0-1]")){
+		calendar.set(MONTH, Integer.parseInt(monthParam));
+	}
+		
+		
+	// 캘린더의 상태가 3월1일로 변환됨
+	// 위에 static 을 임포트 해줬기 때문에 Calendar.을 붙이지 않아도 상수 사용이 가능
+	calendar.set(DAY_OF_MONTH, 1);
+	
+	int dayOfWeek = calendar.get(DAY_OF_WEEK);
+	int offset = dayOfWeek - 1;
+	int maxDate = calendar.getActualMaximum(DAY_OF_MONTH);
+	
+	DateFormatSymbols dfs = DateFormatSymbols.getInstance(locale);
+	
+	// 한달 전으로 상태를 바꿔줌
+	calendar.add(MONTH, -1);
+	int beforeYear = calendar.get(YEAR);
+	int beforeMonth = calendar.get(MONTH);
+	
+	// 한달 후의 달력
+	calendar.add(MONTH, 2);
+	int nextYear = calendar.get(YEAR);
+	int nextMonth = calendar.get(MONTH);
+	
+	// 현재 달 달력으로 돌아옴
+	calendar.add(MONTH, -1);
+	
+	
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h4>
+	<a href="?year=<%=beforeYear%>&month=<%=beforeMonth%>">◀◀◀</a>
+	<%=String.format("%1$tY, %1$tB", calendar) %>
+	<a href="?year=<%=nextYear%>&month=<%=nextMonth%>">▶▶▶</a>
+</h4>
+<table>
+	<thead>
+	<tr>
+	<%
+		String[] weekDays = dfs.getWeekdays();
+		for(int i=SUNDAY; i<=SATURDAY; i++){
+			%>
+			<th><%=weekDays[i] %></th>
+			<%
+		}
+	%>
+	</tr>
+	</thead>
+	<tbody>
+	<%
+		int count = 1;
+		for(int row =1; row<=6; row++){
+	%>
+		<tr>
+		<%
+			for(int col=1; col<=7; col++){
+				int date = count++ - offset;
+		%>
+				<td><%=	date>0 && date<=maxDate ? date:""%></td>
+		<%
+			}
+		%>
+		</tr>
+	<%
+		}
+	%>
+	</tbody>
+</table>
+</body>
+</html>

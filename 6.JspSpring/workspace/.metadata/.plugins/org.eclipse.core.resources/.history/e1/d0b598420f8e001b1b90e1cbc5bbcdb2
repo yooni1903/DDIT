@@ -1,0 +1,8 @@
+package kr.or.ddit.servlet07;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/07/cookieGenerate.do")
+public class CookieGeneratorServlet {
+
+}

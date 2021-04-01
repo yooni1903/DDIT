@@ -2,44 +2,33 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic, QtGui, QtCore, QtWidgets
 
-form_class = uic.loadUiType("myomok19.ui")[0]
+form_class = uic.loadUiType("myomok.ui")[0]
 
 class MyWindow(QMainWindow, form_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.arr2D = [
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
                 
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0]
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0]
             ]
         self.arr2pb = []
         self.flag_wb = True
         self.pbreset.clicked.connect(self.reset)
         self.flag_ing = True
         
-        for i in range(19):
+        for i in range(10):
             line = []
-            for j in range(19):
+            for j in range(10):
                 pb = QPushButton(self)
                 pb.setIcon(QtGui.QIcon('0.png'))
                 pb.setIconSize(QtCore.QSize(40,40))
@@ -54,14 +43,14 @@ class MyWindow(QMainWindow, form_class):
     def reset(self):   
         self.flag_ing = True
         self.flag_wb = True
-        for i in range(19):
-            for j in range(19):
+        for i in range(10):
+            for j in range(10):
                 self.arr2D[i][j] = 0
         self.myrender()
         
     def myrender(self):    
-        for i in range(19):
-            for j in range(19):
+        for i in range(10):
+            for j in range(10):
                 if self.arr2D[i][j] == 0:
                     self.arr2pb[i][j].setIcon(QtGui.QIcon('0.png'))
                 if self.arr2D[i][j] == 1:

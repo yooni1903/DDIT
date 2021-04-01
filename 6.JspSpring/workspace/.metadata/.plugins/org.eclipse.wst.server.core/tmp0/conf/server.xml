@@ -60,7 +60,9 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector connectionTimeout="20000" port="80" protocol="HTTP/1.1" redirectPort="8443" useBodyEncodingForURI="true"/>
+    <Connector connectionTimeout="20000" port="80" protocol="HTTP/1.1" redirectPort="443" useBodyEncodingForURI="true"/>
+    
+    <Connector SSLEnabled="true" clientAuth="false" keystoreFile="D:/B_Util/10.openSSL/local_cert/keystore" keystorePass="java" keystoreType="pkcs12" maxThreads="150" port="443" protocol="org.apache.coyote.http11.Http11Protocol" scheme="https" secure="true" sslProtocol="TLS"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -153,7 +155,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="D:\A_TeachingMaterial\6.JspSpring\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\A_TeachingMaterial\6.JspSpring\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\webStudy01" path="/webStudy01" reloadable="true" source="org.eclipse.jst.jee.server:webStudy01"/></Host>
+      <Context docBase="D:\A_TeachingMaterial\6.JspSpring\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\A_TeachingMaterial\6.JspSpring\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\webStudy01" path="/webStudy01" reloadable="true" source="org.eclipse.jst.jee.server:webStudy01"/><Context docBase="D:\A_TeachingMaterial\6.JspSpring\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\firstWebMVN" path="/firstWebMVN" reloadable="true" source="org.eclipse.jst.jee.server:firstWebMVN"/></Host>
     </Engine>
   </Service>
 </Server>

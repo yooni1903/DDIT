@@ -7,6 +7,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 
 import java.io.*;
+import java.net.URLEncoder;
 
 @WebServlet("/01/image.do")
 public class ImageServlet extends HttpServlet{
@@ -38,18 +39,21 @@ public class ImageServlet extends HttpServlet{
 			resp.sendError(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE);
 			return;
 		}
+
+		
+		
 		
 		resp.setContentType(mime);
 					 
-		
-		FileInputStream fis = new FileInputStream(imageFile);
-		OutputStream os = resp.getOutputStream();
-		
-		byte[] buffer = new byte[1024];	// 
-		int pointer = -1;
-		while((pointer = fis.read(buffer)) != -1){
-			os.write(buffer, 0, pointer);		// 데이터를 쓸 때에는 항상 0번째부터 읽어야하며, pointer가 읽어온만큼까지만 써야한다.
-			
+		try(
+			FileInputStream fis = new FileInputStream(imageFile);
+			OutputStream os = resp.getOutputStream();
+		){
+			byte[] buffer = new byte[1024];	// 
+			int pointer = -1;
+			while((pointer = fis.read(buffer)) != -1){
+				os.write(buffer, 0, pointer);		// 데이터를 쓸 때에는 항상 0번째부터 읽어야하며, pointer가 읽어온만큼까지만 써야한다.
+			}	
 		}
 		
 	

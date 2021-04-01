@@ -48,8 +48,8 @@ for i in rows:
         # zs[cnt].append(arr)
         cnt += 1
         
-for i in range(800):
-    ax.plot(x+i, y, zs[i], label = 'hi')
+for i in range(100):
+    ax.plot(x+i, y, zs[i])
   
         # print(j)
 ax.legend()                                     

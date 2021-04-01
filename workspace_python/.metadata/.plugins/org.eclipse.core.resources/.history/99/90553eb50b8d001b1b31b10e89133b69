@@ -1,0 +1,13 @@
+import cv2
+ 
+image ='spongebob.png'
+ 
+img_color = cv2.imread(image, cv2.IMREAD_COLOR)
+# img_gray = cv2.imread(image,cv2.IMREAD_GRAYSCALE)
+# img_alpha = cv2.imread(image,cv2.IMREAD_UNCHANGED)
+
+cv2.imshow('frame',img_color)
+cv2.imshow('frame2',img_gray)
+cv2.imshow('frame3',img_alpha)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

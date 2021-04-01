@@ -2,4 +2,8 @@
 <typeInfoHistroy>
 <typeInfo handle="=languageLab/D:\/B_Util\/2.Java\/JDK1.8\/jre\/lib\/rt.jar&lt;java.util(Formatter.class[Formatter" modifiers="49" timestamp="1605490416501"/>
 <typeInfo handle="=languageLab/D:\/B_Util\/2.Java\/JDK1.8\/jre\/lib\/rt.jar&lt;java.util(Locale.class[Locale" modifiers="49" timestamp="1605490416501"/>
+<typeInfo handle="=webStudy01/src&lt;kr.or.ddit.servlet08.service{IJdbcDescService.java[IJdbcDescService" modifiers="513" timestamp="1617005699416"/>
+<typeInfo handle="=webStudy01/src&lt;kr.or.ddit.member.dao{IMemeberDAO.java[IMemeberDAO" modifiers="513" timestamp="1617091360281"/>
+<typeInfo handle="=webStudy01/src&lt;kr.or.ddit.member.service{IAuthenticateService.java[IAuthenticateService" modifiers="513" timestamp="1617084074465"/>
+<typeInfo handle="=webStudy01/src&lt;kr.or.ddit.member.service{IMemberService.java[IMemberService" modifiers="513" timestamp="1617087674737"/>
 </typeInfoHistroy>

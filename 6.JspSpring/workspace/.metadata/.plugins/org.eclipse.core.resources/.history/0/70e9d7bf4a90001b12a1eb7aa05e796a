@@ -1,0 +1,25 @@
+package kr.or.ddit.utils;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
+public class CookieUtils {
+	private Map<String, Cookie> cookieMap;
+	private HttpServletRequest req;
+	
+	public CookieUtils(HttpServletRequest req) {
+		super();
+		this.req = req;
+		cookieMap = new LinkedHashMap<>();
+		Cookie[] cookies = req.getCookies();
+		if(cookies != null) {
+			for(Cookie tmp : cookies) {
+				cookieMap.put(tmp.getName(), tmp);
+			}
+		}
+	}
+	
+}

@@ -20,11 +20,11 @@ public class ImageFormServlet extends AbstractUseTmplServlet {
 
 	@Override
 	protected void makeData(HttpServletRequest req) {
-		System.out.println("서블리의 요청 받앗음.");
+		System.out.println("서블리의 요청 받앗음." + application.hashCode());
 
 		// img파일 아닌 것은 걸러내고 리스트에 출력하기
 
-		String folder = "d:/contents";
+		String folder = application.getInitParameter("contentFolder");
 		File contents = new File(folder);
 
 		String[] children = contents.list(new FilenameFilter() {

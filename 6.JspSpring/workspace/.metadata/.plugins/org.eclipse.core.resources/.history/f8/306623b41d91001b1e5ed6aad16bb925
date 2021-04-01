@@ -1,0 +1,12 @@
+package kr.or.ddit.member.dao;
+
+import kr.or.ddit.vo.MemberVO;
+
+/**
+ * 회원 관리 및 인증을 위한 Persistence Layer
+ * 
+ *
+ */
+public interface IMemeberDAO {
+	public MemberVO selectMember(String mem_id);
+}
