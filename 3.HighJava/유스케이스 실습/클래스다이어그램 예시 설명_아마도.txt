@@ -1,0 +1,33 @@
+class A{ }
+
+class B{ }
+
+class C{ }
+
+class D{
+	A a;
+	B b;
+
+	D(){
+	  b = new B();
+	}
+
+	D(A a){    association - aggregation(집합)
+	  this.a = a;
+	}
+	
+	setA(A a){
+	  this.a = a;
+	}
+
+	method(){
+	  C c = new C();
+	}
+}
+
+class E{
+    main(){
+	D d = new D();
+	A a = new A();
+	
+}
