@@ -1,9 +1,0 @@
-127.0.0.1 - - [19/Mar/2021:19:27:14 +0900] "GET / HTTP/1.1" 404 807
-0:0:0:0:0:0:0:1 - - [19/Mar/2021:19:27:27 +0900] "GET /webStudy01/04/serverTime?loc=&zone=Africa%2FAbidjan HTTP/1.1" 404 839
-0:0:0:0:0:0:0:1 - - [19/Mar/2021:19:27:27 +0900] "GET /webStudy01/04/serverTime?zone=Africa%2FAccra&loc=ko HTTP/1.1" 404 839
-0:0:0:0:0:0:0:1 - - [19/Mar/2021:19:28:27 +0900] "GET /webStudy01/04/serverTime?loc=&zone=Africa%2FAbidjan HTTP/1.1" 404 839
-0:0:0:0:0:0:0:1 - - [19/Mar/2021:19:28:27 +0900] "GET /webStudy01/04/serverTime?zone=Africa%2FAccra&loc=ko HTTP/1.1" 404 839
-0:0:0:0:0:0:0:1 - - [19/Mar/2021:19:29:27 +0900] "GET /webStudy01/04/serverTime?loc=&zone=Africa%2FAbidjan HTTP/1.1" 404 839
-0:0:0:0:0:0:0:1 - - [19/Mar/2021:19:29:27 +0900] "GET /webStudy01/04/serverTime?zone=Africa%2FAccra&loc=ko HTTP/1.1" 404 839
-0:0:0:0:0:0:0:1 - - [19/Mar/2021:19:30:27 +0900] "GET /webStudy01/04/serverTime?loc=&zone=Africa%2FAbidjan HTTP/1.1" 404 839
-0:0:0:0:0:0:0:1 - - [19/Mar/2021:19:30:27 +0900] "GET /webStudy01/04/serverTime?zone=Africa%2FAccra&loc=ko HTTP/1.1" 404 839

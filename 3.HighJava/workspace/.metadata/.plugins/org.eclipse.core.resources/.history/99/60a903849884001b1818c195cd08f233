@@ -1,8 +1,0 @@
-package kr.or.ddit.basic;
-
-public class Snippet {
-	public static void main(String[] args) {
-		HashMap<Integer, Room>
-	}
-}
-

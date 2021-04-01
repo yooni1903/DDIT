@@ -1,7 +1,0 @@
-from flask import Flask, render_template
-
-app = Flask(__name__)
-@app.route("/")     # 웰컴 페이지의 의미가 있다.
-@app.route("/navi")
-def emp():
-    return render_template('navi.html')

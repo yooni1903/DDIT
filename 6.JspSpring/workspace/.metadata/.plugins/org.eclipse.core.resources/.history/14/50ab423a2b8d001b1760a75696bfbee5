@@ -1,7 +1,0 @@
-package kr.or.ddit.vo;
-
-public class ParameterVO {
-	private String[] param1;
-	private String[] param2;
-	
-}

@@ -1,4 +1,0 @@
-str = "12345"
-
-txt = str[3:5]
-print(txt)

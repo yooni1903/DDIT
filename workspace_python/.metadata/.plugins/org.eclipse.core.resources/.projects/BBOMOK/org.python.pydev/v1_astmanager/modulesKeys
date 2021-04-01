@@ -1,6 +1,0 @@
-MODULES_MANAGER_V3
-create_dataset|D:\workspace_python\BBOMOK\create_dataset.py
-gomoku|D:\workspace_python\BBOMOK\gomoku.py
-gui|D:\workspace_python\BBOMOK\gui.py
-read_dataset|D:\workspace_python\BBOMOK\read_dataset.py
-train_neat|D:\workspace_python\BBOMOK\train_neat.py

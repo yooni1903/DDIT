@@ -1,5 +1,0 @@
-import numpy as np
-
-a = np.zeros(7, dtype=int)
-
-print(a)

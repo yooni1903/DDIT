@@ -1,3 +1,0 @@
-INDEX VERSION 1.131
-D:\workspace_python\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3658431777.index
-\MYSERVER\src
