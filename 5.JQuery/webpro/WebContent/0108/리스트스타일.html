@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{
+		width : 200px;
+		height : 150px;
+		border : 1px dotted orange;
+		margin: 10px;
+		float : left; /* float - 여러 개의 요소들을 같이 배치하고 싶을 때 사용 [left - right]*/
+		overflow: auto; /* scroll;  hidden;  */
+	}
+	
+	#circle{
+		list-style-type : circle;
+		list-style-position: inside;
+	}
+	
+	#square{
+		list-style-type: square;
+	}
+	
+	#image{
+		list-style-image: url(../images/check.png);
+	}
+	
+	
+	hr{
+		clear : both;  /* float 시켜준 left나 right 속성을 해제한다. */
+	}
+	
+	#lalpha{
+		list-style-type: lower-alpha;
+	}
+	
+	#ualpha{
+		list-style-type: upper-alpha;
+	}
+	
+	#hangul{
+		list-style-type: hangul;
+	}
+	
+	#khf{
+		list-style-type: korean-hangul-formal;
+	}
+</style>
+</head>
+<body>
+  <div>
+	<ul>
+		<h4>list-style-type : disk</h4>
+		<li>아메리카노</li>
+		<li>카페라떼</li>
+		<li>카푸치노</li>
+	</ul>
+  </div>
+  
+  <div>
+	<ul id = "circle">
+		<h4>list-style-type : circle</h4>
+		<li>아메리카노</li>
+		<li>카페라떼</li>
+		<li>카푸치노</li>
+	</ul>
+  </div>
+  
+  <div>
+	<ul id = "square">
+		<h4>list-style-type : square</h4>
+		<li>아메리카노</li>
+		<li>카페라떼</li>
+		<li>카푸치노</li>
+	</ul>
+  </div>
+  
+  <div>
+	<ul id = "image">
+		<h4>list-style-image : image</h4>
+		<li>아메리카노</li>
+		<li>카페라떼</li>
+		<li>카푸치노</li>
+	</ul>
+  </div>
+  <hr>
+  
+  <div>
+	<ol>
+		<h4>list-style-type : decimal</h4>
+		<li>아메리카노</li>
+		<li>카페라떼</li>
+		<li>카푸치노</li>
+	</ol>
+  </div>
+  
+  <div>
+	<ol id = "lalpha">
+		<h4>list-style-type : lower-alpha</h4>
+		<li>아메리카노</li>
+		<li>카페라떼</li>
+		<li>카푸치노</li>
+	</ol>
+  </div>
+  
+  <div>
+	<ol id = "ualpha">
+		<h4>list-style-type : upper-alpha</h4>
+		<li>아메리카노</li>
+		<li>카페라떼</li>
+		<li>카푸치노</li>
+	</ol>
+  </div>
+  
+  <div>
+	<ol id = "hangul">
+		<h4>list-style-type : hangul</h4>
+		<li>아메리카노</li>
+		<li>카페라떼</li>
+		<li>카푸치노</li>
+	</ol>
+  </div>
+  
+  <div>
+	<ol id = "khf">
+		<h4>list-style-type : korean-hangul-formal</h4>
+		<li>아메리카노</li>
+		<li>카페라떼</li>
+		<li>카푸치노</li>
+	</ol>
+  </div>
+  
+</body>
+</html>

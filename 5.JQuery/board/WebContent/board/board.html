@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="../js/board.js"></script>
+  <script src="../js/jquery.serializejson.min.js"></script>
+<style>
+    body{
+        margin: 10px;
+    }
+    p{
+        box-sizing: border-box;
+    }
+    .p1{
+        width: 80%;
+        float: left;
+    }
+    .p2{
+        width: 20%;
+        float : right;
+    }
+    .p3{
+        clear: both;
+    }
+    button[name=reply]{
+        height: 45px;
+        vertical-align: top;
+    }
+    .panel-heading:hover{
+        background: #c0fdff
+    }
+    .pager{
+    	width: 150px;
+    	float : left;
+    	margin : 5px;
+    }
+    .pul{
+    	margin-left : 20%;
+    }
+    label{
+        display: inline-block;
+        width: 100px;
+        height: 25px;
+    }
+    .rep{
+    	margin: 5px;
+    	padding: 10px;
+    	background: #ccddf9;
+    	border: 1px solid gray;
+    }
+    #modifyForm{
+        display: none;
+    }
+</style>
+
+<script>
+	// 객체 생성 - 중괄호 안을 비워두면, 속성과 메소드를 동적으로 추가해서 사용할 수 있다.
+	board = {};
+	
+	// 댓글 수정 시 사용할 객체
+	reply = {};		// reply 안에 아무것도 없지만 나중에 renum, cont 쓸 수 있다.
+	
+	$(function(){
+		//readServer();
+		readPageServer(1);
+		
+		// 페이지번호, 이전, 다음 버튼 클릭에 대한 이벤트
+		$('#pagelist').on('click', '.paging', function(){
+			//alert($(this).text());
+			currentPage = $(this).text();
+			readPageServer(currentPage);
+		});
+		
+		// 다음 버튼 클릭
+		$('#pagelist').on('click', '.next', function() {
+			currentPage = parseInt($('.paging').last().text()) + 1;
+			readPageServer(currentPage);
+		});
+
+		// 이전버튼
+		$('#pagelist').on('click', '.prev', function() {
+			currentPage = parseInt($('.paging').first().text()) - 1;
+			readPageServer(currentPage);
+		});
+        
+        // 각 버튼에 대한 이벤트 (수정, 삭제, 등록), 리스트 제목줄 클릭이벤트
+        $('.box').on('click', '.action', function(){
+            
+            vname = $(this).attr('name');
+            vidx = $(this).attr('idx');
+            
+            
+            if(vname == "modify"){
+//                 alert(vidx + "번글을 수정합니다.");
+				// modal창 띄우기
+                $('#modiModal').modal('show');
+				
+				// modal창에 수정할 내용을 출력
+                parent = $(this).parents('.panel');
+                title = $(parent).find('a').text();
+                writer = $(parent).find('.wr').text();
+                mail = $(parent).find('.wm').text();
+                cont = $(parent).find('.wc').html();			// <br>태그가 포함되어있기 때문에 html로 가져온다.
+                num = vidx;
+                
+                cont = cont.replace(/<br>/g, "\n");                
+                $('#mform #subject').val(title);		// 위에서 가져온 title을 subject에 넣어라
+                $('#mform #writer').val(writer);
+                $('#mform #mail').val(mail);
+                $('#mform #num').val(num);
+                $('#mform #content').val(cont);
+                
+                
+                
+            }else if(vname == "delete"){
+//                alert(vidx + "번글을 삭제합니다.");
+                deleteBoard(this);
+            }else if(vname == "reply"){
+//                 alert(vidx + "번글에 댓글을 답니다");
+
+				// 서버로 요청하기 위해서 보낼 데이터 - bonum, cont, name
+				cont = $(this).parent('.p4').find('textarea').val();
+				name1 = String.fromCharCode(Math.floor(Math.random() * 26 + 97));
+				name2 = String.fromCharCode(Math.floor(Math.random() * 26 + 65));
+				name3 = Math.floor(Math.random() * 50 + 20);			// 20~69사이 숫자
+				console.log(name1 + ", " + name2 + ", " + name3);
+				
+				board.bonum = vidx;
+				// 등록버튼을 기준으로 바로 위에 있는 부모요소를 찾고 그 안의 textarea를 찾는다
+				board.cont = cont;
+				board.name = name1 + name2 + name3;
+				
+				replySaveServer(this);
+                
+                
+                
+            }else if(vname == "list"){
+//             	alert(vidx + "번글의 조회 수 증가와 댓글 목록");
+
+				vclass = $(this).parents('.panel').find('.in').attr('class');
+				console.log(vclass);
+				
+				// vclass가 undefined일 때 조회수 증가
+				// undefined는 값이 정해지지 않은 자료형 -> 비교할 때 일반 문자열처럼 하는 것이 아니라 typeof를 사용해서 비교해야한다.
+				// undefinded도 요소 중에 하나인데 값이 없는 요소이다
+				if(typeof vclass == 'undefined'){			
+					// 조회수 증가
+					readHitServer(this);
+				}
+				
+				replyListServer(this);
+            }else if(vname == "r_delete"){
+            	deleteReply(this);
+            }else if(vname == "r_modify"){
+            	// $(this).attr('disabled', 'disabled')	==> 옛날 방법 ... 지금은 prop를 쓴다.
+            	$(this).prop('disabled', true);
+//             	alert(vidx + " 댓글 수정");
+
+				if($('#modifyForm').css('display')	!= "none"){					// css("속성") 값을 안써주면 해당 css 값을 가져오라는 뜻
+					// 현재 어딘가에 modifyForm이 열려있다 = 보이고 있다.
+					
+					// modifyForm의 textarea의 내용을 가져온다.
+					// 원래 sapn class = "cont"의 다시 출력해주고 
+					// modifyForm을 body로 append() 한다.
+					replyReset();	// 현재 어딘가에 열려있는 modifyForm을 닫고(취소와 같은 기능을 하게 한다) 그 수정하려던 댓글의 원래 내용으로 다시 돌아갈 수 있도록 한다.
+				}
+				
+			 // 원래 내용(수정할 내용) 가져오기 
+				modifycont = $(this).parents(".rep").find(".cont").html();
+				
+				// br태그를 \n으로 변경
+				modifycont = modifycont.replace(/<br>/g, "\n");
+				
+				// modifyForm
+				$('#modifyForm textarea').val(modifycont);
+				
+				// modifyForm 보이기
+				$(this).parents(".rep").find(".cont").empty().append($('#modifyForm'));		// 지우고나서 값을 넣기
+				$('#modifyForm').show(); 
+            }
+            	
+            
+        });
+        
+        // 열려있는 modifyForm 닫기
+       /*  replyReset = function(){
+        	spancont = $('#modifyForm').parent();		// 원래의 span 태그
+        	
+        	// 수정 폼을 다시 body로 잘라서 붙여넣기 하는 과정 - append
+        	$('body').append('#modifycont');
+        	$('#modifycont').hide();
+        	
+        	// 원래 내용을 가져와서 수정폼에 출력하기 위해서 br태그를 \n으로 바꾼 적이 있는데 이를 span태그로 출력하기 위해 다시 바꿔주는 과정
+        	modifycont = modifycont.replace(/\n/g, "<br>");
+        	
+        	$(spancont).append(modifycont);				// 수정창에 있는 글 내용
+        	
+        	
+        } */
+        
+        // 글쓰기 전송
+        $('#wsend').on('click', function(){
+        	insertBoard();  
+            // modal창 닫기
+//            $('#writeModal').modal('hide');
+//            $('.txt').val("");      // 이렇게 했을 경우에 insertBoard의 처리가 완벽하게 되지 않았는데 값을 지우는 일이 발생할 수 있다.
+            
+        });
+        
+        // 수정 전송버튼
+        $('#msend').on('click', function(){
+        	updateBoard();		
+         // updateBoard();함수에서 수정버튼이 필요하다.
+ 	     // 수정버튼을 이용해서 조상(.panel)을 검색하여
+ 		 // parent 변수에 저장
+ 		 // parent는 전역변수다.
+        });
+        
+     // 댓글 수정에서 확인 버튼
+  	  $('#modiok').on('click', function(){
+  		  $(this).parents('.rep').find('#rmodi').prop('disabled', false);
+  		  
+  		  modicont = $('#modifyForm textarea').val();
+  		  
+  		  modicont = modicont.replace(/\n/g, '<br>');
+  		  
+  		  // 화면에서 수정 - 아직 DB에서 수정 안됨
+  		  // 화면에서 수정하기 위해서 현재 수정폼의 부모를 찾는다.
+  		  spancont = $('#modifyForm').parent(); // 부모 == spancont
+  		  
+  		  // modifyForm을 다시 body로 보내기 
+  		  $('body').append($('#modifyForm'));
+  		  $('#modifyForm').hide();
+  		  
+  		  // 화면에 수정한 내용을 출력
+  		  $(spancont).html(modicont);
+  		  
+  		  // DB에서 수정 - ajax 가지고 서버로 전송 - reply객체를 이용해서 cont, renum을 설정
+  		  // this는 modiok > ok버튼에는 attr에 idx가 없음  
+  		  reply.cont = modicont;
+  		  reply.renum = vidx;
+//   		  console.log("cont = " + modicont)
+//   		  console.log("idx = " + vidx)
+  		  updateReply();	// vidx 전역변수라서 그냥 사용 가능(댓글 수정 버튼 눌렀을 때~ 사용)
+  		  
+  	  });
+        
+  	  // 댓글 수정에서 취소 버튼
+	  $('#modireset').on('click', function(){
+		  // 취소 버튼 누르면 댓글 수정 버튼을 다시 활성화 시키기
+		  $(this).parents('.rep').find('#rmodi').prop('disabled', false);
+		  replyReset();
+	  });
+	  
+	});
+</script>
+</head>
+<body>
+
+	<!-- 댓글 수정 폼 -->
+    <div id="modifyForm">
+        <textarea name="" id="" cols="30" rows="10" row="5"></textarea>
+        <input type="button" value="확인" id="modiok">
+        <input type="button" value="취소" id="modireset">
+    </div>
+
+
+
+    <h2>게시판</h2>
+    <br>
+    <br>
+    <button data-toggle="modal" data-target="#writeModal" name="write" class="action btn btn-success" type="button">글쓰기</button>
+    <br><br>
+	<div class="box">
+	</div>
+	<br><br>
+	<div id="pagelist"></div>
+	
+
+  <!-- Modal -->
+  <div class="modal fade" id="writeModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Insert</h4>
+        </div>
+        <div class="modal-body">
+        	<form id="wform">
+        	    <label>제목</label>
+                <input class="txt" name="subject"><br>
+                
+                <label>작성자</label>
+                <input class="txt"  name="writer"><br>
+                
+                <label>메일</label>
+                <input class="txt"  name="mail"><br>
+                
+                <label>비밀번호</label>
+                <input class="txt"  type="password" name="password"><br>
+                
+                <label>내용</label><br>
+                <textarea class="txt"  name="content" rows="10" cols="40"></textarea><br>
+                <button class="btn btn-primary" id="wsend" type="button">전송</button>
+        	</form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- 수정 창 띄우는 modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="modiModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Update</h4>
+        </div>
+        <div class="modal-body">
+        	<form id="mform">
+        	    <label>제목</label>
+                <input class="txt" id="subject" name="subject"><br>
+                <input type="hidden" id="num" name="num"> <br>
+                
+                <label>작성자</label>
+                <input class="txt" id="writer" name="writer"><br>
+                
+                <label>메일</label>
+                <input class="txt" id="mail" name="mail"><br>
+                
+                <label>비밀번호</label>
+                <input class="txt" id="password" type="password" name="password"><br>
+                
+                <label>내용</label><br>
+                <textarea class="txt" id="content" name="content" rows="10" cols="40"></textarea><br>
+                <button class="btn btn-primary" id="msend" type="button">전송</button>
+        	</form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+</body>
+</html>

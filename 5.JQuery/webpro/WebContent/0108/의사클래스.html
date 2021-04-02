@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<style>
+	a:link{
+		color : red;
+		text-decoration: none; 
+	}
+	a:visited{
+		color : green;
+	}
+	a:hover{
+		color : blue;
+		text-decoration: underline;
+	}
+	a:active{
+		color : black;
+		font-size: 1.2em;
+	}
+	p:hover{	/* p태그는 링크가 아니기때문에 link가 없다 */
+		background: lime;
+	}
+	table{
+		margin : 20px;
+	}
+	#tab1{
+		border : 2px solid blue;
+		border-collapse: collapse;
+	}
+	#tab1 td{
+		width : 150px;
+		height : 40px;
+	}
+	
+	#tab2{
+		border : 5px inset green;
+		border-spacing: 10px;
+	}
+	#tab2 td{
+		width : 150px;
+		height : 50px;
+	}
+	#tab1 .t1{
+		background: lightgray;
+	}
+	#tab2 tr:nth-child(even){
+		background: lightgreen;
+	}
+	#tab3 td{
+		width : 120px;
+		height : 30px;
+	}
+	
+	#tab3{
+		border : 4px double red;
+	}
+	
+	#tab3 td:nth-child(odd){ /* odd 대신 2n-1로 적어도 된다. */
+		background: lightblue;
+	}
+	span{
+		background: white;
+		color : red;
+		font-size: 1.2em;
+	}
+	
+</style>
+</head>
+<body>
+	<pre>
+	의사 클래스
+	
+	상태나 구조에 의해서 선택이 이루어진다.
+	상태 : 	:link	: visited	:hover	:active
+	
+	a:link{
+		color : red;
+		text-decoration: none; 
+	}
+	a:visited{
+		color : green;
+	}
+	a:hover{
+		color : blue;
+		text-decoration: underline;
+	}
+	a:active{
+		color : black;
+		font-size: 1.2em;
+	}
+	p:hover{	/* p태그는 링크가 아니기때문에 link가 없다 */
+		background: lime;
+	}
+	</pre>
+	
+	<a href = "http://www.naver.com">네이버</a>
+	<a href = "http://www.daum.net">다음</a>
+	<a href = "http://www.w3schools.com">w3school</a>
+	<a href = "http://www.apache.org">apache</a>
+	
+	<p>무궁화 꽃이 피었습니다</p>
+	
+	<pre>
+	구조에 의한 의사코드
+	td:nth-child(3) - 3번째 td를 선택
+	td:nth=child(even) - 짝수번째 td를 선택
+	td:nth-child(odd) - 홀수번째 td를 선택
+	tr:nth-child(2n) - 짝수번째 tr을 선택
+	</pre>
+	
+	<pre>
+	#tab1{
+		border : 2px solid blue;
+		border-collapse: collapse;
+	}
+	#tab1 td{
+		width : 150px;
+		height : 40px;
+	}
+	#tab1 <span>.t1</span>{
+		background: lightgray;
+	}
+	</pre>
+	
+	<table border = "1" id = "tab1">
+		<tr class = "t1">
+			<td id = "d1"></td>
+			<td id = "d2"></td>
+			<td id = "d3"></td>
+			<td id = "d4"></td>
+		</tr>	
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		
+		<tr class = "t1">
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+	</table>
+	
+	<pre>
+	#tab2{
+		border : 5px inset green;
+		border-spacing: 10px;
+	}
+	#tab2 td{
+		width : 150px;
+		height : 50px;
+	}
+	#tab2 <span>tr:nth-child(even)</span>{
+		background: lightgreen;
+	}
+	</pre>
+	
+	<table border = "1" id = "tab2">
+		<tr class = "t1">
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+	</table>
+	
+	<pre>
+	#tab3 td{
+		width : 120px;
+		height : 30px;
+	}
+	
+	#tab3{
+		border : 4px double red;
+	}
+	
+	#tab3 <span>td:nth-child(odd)</span>{ /* odd 대신 2n-1로 적어도 된다. */
+		background: lightblue;
+	}
+	</pre>
+	
+	<table border = "1" id = "tab3">
+		<tr class = "t1">
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+	</table>
+</body>
+</html>

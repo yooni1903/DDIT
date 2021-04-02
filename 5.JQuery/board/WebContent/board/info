@@ -1,0 +1,19 @@
+html - javascript 메소드 호출
+javascript의 메소드에서 ajax요청을 한다.
+각 요소에 대한 이벤트는 html에 등록한다.
+
+------------------------------------------------------------------
+
+리스트 출력
+board.html에서 javascript(board.js)의 readServer()메소드 호출
+
+readServer의 ajax에서 서블릿(ListAll.java - List.do)요청
+service - dao - mapper수행 후 
+결과를 리턴 받는다.
+결과를 request에 
+
+listAll.jsp로 forward - json데이터 생성
+ajax의 success로 응답받음
+
+------------------------------------------------------------------
+

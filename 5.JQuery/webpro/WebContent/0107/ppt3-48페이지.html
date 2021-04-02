@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	label{
+		display : inline-block;
+		width : 100px;
+		padding : 5px;
+	}
+	h1{
+		margin-left : 50px;
+		margin-bottom: 10px;
+	}
+	fieldset{
+		border : 2px solid blue;
+		width: 500px;
+		padding : 20px;
+	}
+</style>
+</head>
+<body>
+<h1>회원 가입 화면</h1>
+<form action = "48page.jsp" method = "post">
+	<fieldset>
+	<label>이름</label> <input type = "text" name = "name"><br>
+	<label>주소</label> <input type = "text" name = "addr"><br>
+	<label>이메일</label> <input type = "text" name = "email"><br>
+	
+	<input type = "radio" name = "gender" value = "Male">Male<br>
+	<input type = "radio" name = "gender" value = "Female">Female<br>
+	<br> <input type = "submit" value = "Send">
+	 <input type = "reset" value = "원래대로">
+	
+	</fieldset>
+	
+</form>
+
+</body>
+</html>

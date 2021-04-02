@@ -1,0 +1,17 @@
+commentBorder=\#99968B | null | null | null | null | null
+commentText=\#99968B | null | null | null | null | null
+declBoder=\#F3F6EE | null | null | null | null | null
+doctypeExternalId=\#F3F6EE | null | null | null | null | null
+doctypeExternalPubref=\#F3F6EE | null | null | null | null | null
+doctypeExtrenalSysref=\#F3F6EE | null | null | null | null | null
+doctypeName=\#F3F6EE | null | null | null | null | null
+eclipse.preferences.version=1
+entityReference=\#8AC6F2 | null | null | null | null | null
+newFileTemplateName=New HTML File (5)
+org.eclipse.wst.sse.ui.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="true" context\="html_new" deleted\="false" description\="html 5" enabled\="true" id\="org.eclipse.wst.html.ui.templates.html5" name\="New HTML File (5)">&lt;\!DOCTYPE html&gt;\r\n&lt;html&gt;\r\n&lt;head&gt;\r\n&lt;meta charset\="${encoding}"&gt;\r\n&lt;title&gt;Insert title here&lt;/title&gt;\r\n&lt;link rel \= "stylesheet" href \= "../css/public.css"&gt;\r\n&lt;script src\="../js/jquery-3.5.1.min.js"&gt;&lt;/script&gt;\r\n&lt;style&gt;\r\n\r\n&lt;/style&gt;\r\n\r\n&lt;script&gt;\r\n\r\n&lt;/script&gt;\r\n&lt;/head&gt;\r\n&lt;body&gt;\r\n${cursor}\r\n\t&lt;div class\="box"&gt;\r\n\t\r\n\t\t&lt;br /&gt;\r\n\t\t\r\n\t\t&lt;input type\="button" value \= "\uD655\uC778"/&gt;\r\n\t\t&lt;div id\="result1"&gt;&lt;/div&gt;\r\n\t&lt;/div&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;</template></templates>
+tagAttributeEquals=\#F6F3E8 | null | null | null | null | null
+tagAttributeName=\#CAE682 | null | null | null | null | null
+tagAttributeValue=\#95E454 | null | null | null | null | null
+tagBorder=\#D4C4A9 | null | null | null | null | null
+tagName=\#D4C4A9 | null | null | null | null | null
+xmlContent=\#F6F3E8 | null | null | null | null | null

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.5.1.min.js"></script>
+<style>
+
+</style>
+
+<script>
+    $(function(){
+        i=0;
+        // $(document).delegate('.btn', 'click', function(){ })     delegate와 on을 쓸 때 'click' 즉, 이벤트의 위치가 반대니 유의해서 써야한다.
+        $(document).on('click', '.btn', function(){
+            i++;
+            aa = $("<input>", {
+                'class' : 'btn',
+                'type' : 'button',
+                'value' : '새로운 버튼' + i
+            });
+            
+            $(aa).appendTo($('#result1'));
+        })
+        
+        $('#clear').on('click', function(){
+            // 버튼의 이벤트를 해제
+            $(document).off('click');
+            $(document).undelegate('click');
+        })
+    });
+</script>
+</head>
+<body>
+
+	<div class="box">
+	delegate : 실행 후 새롭게 생성된 요소에도 기존의 요소와 동일한 이벤트를 핸들러를 실행한다. <br>
+    $(document).delegate('대상', 'click', function(){ }) <br>
+	$(document).on('click', (이벤트)대상, function(){ }) <br>
+	<br>
+	$(document) 에는 이벤트 대상의 부모요소가 올 수도 있다. <br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex) $('div')와 같이 부모요소가 올 수 있다. <br>
+		<br />
+		
+		<div>
+		    <input type="button" value="버튼1" class="btn">
+            <input type="button" value="버튼2" class="btn">
+            <input type="button" value="버튼3" class="btn">
+		</div>
+		
+		<input type="button" id="clear" value="해제">
+		
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

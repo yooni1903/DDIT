@@ -1,0 +1,108 @@
+1. 이미지 의 가로, 세로 크기를 지정 
+img{
+	width: 500px;
+	height: 400px;
+}
+
+2. div태그의 테두리를 지정 
+div{
+	border: 1px solid blue;
+}
+
+3. p태그의  글자크기와 글자색을 지정 
+p{
+	font-size: 1.5em;
+	color: green;
+}
+
+4. a링크 태그의 초기에는 밑줄이 나타난다  밑줄이 나타나지 않도록 설정 
+a{
+	text-decoration: none;
+}
+
+5. 여러개의 div들을 옆으로 배치할려고한다  스타일을 지정하세요 
+div{
+	display: inline-block;
+	float: left;
+}
+
+6. id가 aa 인 요소에서 글자 정렬을 가운데 로 지정 
+#aa{
+	text-align: center;
+}
+7. pre태그의 위쪽과, 아래쪽 테두리를 지정 
+pre{
+	border-top: 1px dotted blue;
+	border-bottom: 3px solid blue;
+}
+
+8. span태그의 검정색 배경에 하얀색 글자로 지정 
+span{
+	background: black;
+	color: white;
+}
+
+9. table의  안쪽 각 셀의 테두리를 합치기 
+table{
+	border-collapse: collapse;
+}
+
+10. table의 각 셀간의 여백(공백)을 지정 
+table{
+	border: 1px solid green;
+	border-spacing: 10px;
+}
+
+11. div의 안쪽여백과 줄간격을 지정 
+div{
+	padding: 30px;
+	line-height: 30px;
+}
+12. div와 div사이의 여백을 지정
+div{
+	margin: 20px;
+}
+13. button의 배경색과 테두리를 지정 하고 
+        테두리 지정시 둥근테두리로 나타내시요 
+button{
+	background: gray;
+	border: 1px solid blue;
+	border-radius: 50px;
+}
+14. p태그의 글자를 굵게 지정
+p{
+	font-weight: bold;
+}
+ 
+15. 아이디가 tab1인 table 의  후손 td의 문자열를 가운데로 정렬 
+#tab1 td{
+	text-align: center;
+}
+16. 클래스가 tta인 요소의 테두리의 폭(굵기)은 10px  테두리의 색상은 green 으로 지정 
+.tta{
+	border: 10px solid green;
+}
+17. div의 안쪽여백과 바깥쪽여백을 지정 하고 내용이 테두리 밖으로 벗어났을때 
+      scrollbar가 생기도록 설정 
+div{
+	padding: 20px;
+	margin: 20px;
+	overflow: auto;
+
+}
+18,  p태그와 span태그를 동시에  글자크기 지정 
+p, span{
+	font-size: 1.4em;
+}
+
+19. ul  리스트스타일은 초기에 검정동그라미(disc) 으로 표시된다 
+     이모양을 검정네모사각형으로 변경 
+ul{
+	list-style-type: square;
+}
+20   a 태그의 글자간격을 지정
+a{
+	letter-spacing: 10px;
+}
+
+        

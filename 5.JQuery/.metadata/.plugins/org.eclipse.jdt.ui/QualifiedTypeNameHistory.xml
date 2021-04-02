@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.eclipse.jdt.internal.compiler.parser.Scanner"/>
+<fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="com.ibatis.common.resources.Resources"/>
+<fullyQualifiedTypeName name="kr.or.ddit.dao.IDaoSample"/>
+<fullyQualifiedTypeName name="kr.or.ddit.dao.DaoImpl"/>
+<fullyQualifiedTypeName name="kr.or.ddit.service.IServiceSample"/>
+<fullyQualifiedTypeName name="kr.or.ddit.service.ServiceImpl"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.MemberVO"/>
+<fullyQualifiedTypeName name="kr.or.ddit.lprod.dao.ILprodDao"/>
+<fullyQualifiedTypeName name="kr.or.ddit.lprod.dao.LprodDaoImpl"/>
+<fullyQualifiedTypeName name="kr.or.ddit.lprod.service.ILprodService"/>
+<fullyQualifiedTypeName name="kr.or.ddit.lprod.service.LprodServiceImpl"/>
+<fullyQualifiedTypeName name="kr.or.ddit.lprod.vo.LprodVO"/>
+<fullyQualifiedTypeName name="kr.or.ddit.ibatis.mapper.ProdVO"/>
+<fullyQualifiedTypeName name="kr.or.ddit.prod.dao.IProdDao"/>
+<fullyQualifiedTypeName name="kr.or.ddit.prod.dao.ProdDaoImpl"/>
+<fullyQualifiedTypeName name="kr.or.ddit.prod.service.IProdService"/>
+<fullyQualifiedTypeName name="kr.or.ddit.prod.service.ProdServiceImpl"/>
+<fullyQualifiedTypeName name="kr.or.ddit.prod.vo.ProdVO"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.dao.IMemberDao"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.dao.MemberDaoImpl"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.vo.ZipVO"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.service.IMemberService"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.service.MemberServiceImpl"/>
+<fullyQualifiedTypeName name="kr.or.ddit.member.vo.MemberVO"/>
+<fullyQualifiedTypeName name="org.apache.commons.beanutils.BeanUtils"/>
+<fullyQualifiedTypeName name="com.ibatis.sqlmap.client.SqlMapClient"/>
+<fullyQualifiedTypeName name="kr.or.ddit.ibatis.config.SqlMapClientFactory"/>
+<fullyQualifiedTypeName name="kr.or.ddit.board.dao.BoardDaoImpl"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="kr.or.ddit.board.dao.IBoardDao"/>
+<fullyQualifiedTypeName name="kr.or.ddit.board.vo.BoardVO"/>
+<fullyQualifiedTypeName name="org.apache.jasper.compiler.Node.ForwardAction"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="kr.or.ddit.board.vo.ReplyVO"/>
+<fullyQualifiedTypeName name="kr.or.ddit.board.service.IBoardService"/>
+<fullyQualifiedTypeName name="kr.or.ddit.board.service.BoardServiceImpl"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+</qualifiedTypeNameHistroy>

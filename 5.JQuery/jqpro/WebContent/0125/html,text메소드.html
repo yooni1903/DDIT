@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.5.1.min.js"></script>
+<style>
+    span{
+        background: yellow;
+    }
+</style>
+
+<script>
+    // 준비되면 - $(document).ready(function(){})
+    $(function(){
+        
+        // 버튼 클릭하면 - p태그의 내용 가져오기
+        $('input[value=html]').on('click', function(){
+           /* -------------------------------------
+           a = $('p').html();  // text은 모든 텍스트의 내용을 출력하지만 html은 p태그가 여러 개일 경우 첫번째 한 개만 출력한다.
+            
+            //alert(a);
+            $('#result1').html(a);      // span태그와 함께 출력되서 background 설정도 같이 가져온다.
+//            $('#result1').text(a);
+            ---------------------------------------- */
+            
+            // p태그의 내용 3개 모두 가져오기
+            res = "";
+            $.each($('p'), function(i){ // 반복문
+                res += $(this).html() + "<br>";   // p[i]
+            })
+            //alert(res);
+//            $('#result1').html(res);
+            $('#result1').text(res);
+        })
+        
+        $('input[value=text]').on('click', function(){
+             a = $('p').text();
+            
+            //alert(a);
+            $('#result2').html(a);  // text로 가져온 후 html로 출력했기 때문에 별다른 변동없이 텍스트만 출력된다.
+            
+        })
+        
+        
+        
+        
+        /* 
+            innerHTML -> html()
+            textContent -> text()
+            value -> val() : input, textarea, select인 경우에 val()을 쓴다.
+        */
+        
+    });
+</script>
+</head>
+<body>
+	<div class="box">
+        <p>1<span>홍길동</span></p>
+        <p>2<span>개나리</span></p>
+        <p>3<span>진달래</span></p>
+	
+		<br />
+		
+		<input type="button" value = "html" />
+		<input type="button" value = "text" />
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

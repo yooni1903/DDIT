@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=jqpro/src&lt;kr.or.ddit.dao{IDaoSample.java[IDaoSample" modifiers="513" timestamp="1612489376688"/>
+<typeInfo handle="=jqpro/src&lt;kr.or.ddit.service{IServiceSample.java[IServiceSample" modifiers="513" timestamp="1612491265985"/>
+<typeInfo handle="=lprod/src&lt;kr.or.ddit.lprod.dao{ILprodDao.java[ILprodDao" modifiers="513" timestamp="1612495294836"/>
+<typeInfo handle="=lprod/src&lt;kr.or.ddit.lprod.service{ILprodService.java[ILprodService" modifiers="513" timestamp="1612495308095"/>
+<typeInfo handle="=prod/src&lt;kr.or.ddit.prod.dao{IProdDao.java[IProdDao" modifiers="513" timestamp="1612508983216"/>
+<typeInfo handle="=prod/D:\/B_Util\/5.ApacheTomcat\/apache-tomcat-7.0.107-windows-x64\/apache-tomcat-7.0.107\/lib\/ecj-4.4.2.jar&lt;org.eclipse.jdt.internal.compiler(IProblemFactory.class[IProblemFactory" modifiers="1537" timestamp="1605640796000"/>
+<typeInfo handle="=prod/src&lt;kr.or.ddit.prod.service{IProdService.java[IProdService" modifiers="513" timestamp="1612509115305"/>
+<typeInfo handle="=prod/D:\/B_Util\/5.ApacheTomcat\/apache-tomcat-7.0.107-windows-x64\/apache-tomcat-7.0.107\/lib\/ecj-4.4.2.jar&lt;org.eclipse.jdt.internal.compiler.apt.dispatch(IProcessorProvider.class[IProcessorProvider" modifiers="1537" timestamp="1605640796000"/>
+<typeInfo handle="=member/src&lt;kr.or.ddit.member.dao{IMemberDao.java[IMemberDao" modifiers="513" timestamp="1612748074241"/>
+<typeInfo handle="=member/src&lt;kr.or.ddit.member.service{IMemberService.java[IMemberService" modifiers="513" timestamp="1612747557066"/>
+<typeInfo handle="=board/src&lt;kr.or.ddit.board.dao{IBoardDao.java[IBoardDao" modifiers="513" timestamp="1613957231744"/>
+<typeInfo handle="=board/src&lt;kr.or.ddit.board.service{IBoardService.java[IBoardService" modifiers="513" timestamp="1613957199954"/>
+</typeInfoHistroy>

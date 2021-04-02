@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC  "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="prod">
+	<select id="selectByName" resultClass="prodVO" parameterClass="string">
+		select prod_id, prod_name from prod where prod_lgu = #data#  <!-- lprod_gu를 가져와서 파라미터로 넣는다. -->
+	</select>
+	
+	<select id="selectByDetails" resultClass="prodVO" parameterClass="string">
+		select * from prod where prod_id = #data#	<!-- 위 select문에서 나온 결과 중 prod_id를 가져와서 넣는다. -->
+	</select>
+</sqlMap>

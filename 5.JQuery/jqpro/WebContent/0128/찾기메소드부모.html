@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+.ancestors * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('#parent').on('click', function(){
+        $("span").parent().css({"color": "red", "border": "2px solid red"});
+    })
+    
+    $('#parents').on('click',function(){
+        $("span").parents().css({"color": "#9898fc", "border": "2px solid #9898fc"});
+    })
+    
+    $('#ps_select').on('click',function(){
+        $("span").parents('#d1').css({"color": "#ff89f6", "border": "2px solid #ff89f6"});
+    })
+    
+    $('#ps_until').on('click',function(){
+        $("span").parentsUntil('#result1').css({"color": "#02b210", "border": "2px solid #02b210"});
+    })
+    
+});
+</script>
+</head>
+
+<body >
+   <input type="button" id="parent" value="부모">
+   <input type="button" id="parents" value="모든조상">
+   <input type="button" id="ps_select" value="특별한 조상">
+   <input type="button" id="ps_until" value="사이조상">
+   
+    <div id="result1" class="ancestors">      
+        <div id="d1" style="width:500px;">div (great-grandparent)
+            <ul>ul (grandparent)  
+              <li>li (direct parent)
+                <span>span</span>
+              </li>
+            </ul>   
+        </div>
+    </div>
+</body>
+
+</html>

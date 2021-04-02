@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.5.1.min.js"></script>
+<style>
+    .bcolor{
+        background: pink;
+    }
+    #result1{
+        color : #883eff;
+    }
+    .fontSize{
+        font-size: 1.5em;
+    }
+    .bc_fs{
+        background: skyblue;
+        font-size: 1.5em;
+    }
+</style>
+    
+<script>
+    $(function(){
+        $('.box1>input:button').on('click', function(){
+//            $('#result1 p').css('background', 'yellow');
+            $('#result1 p').addClass('bcolor');
+        })
+        
+        $('#result1 p').on('click', function(){
+            $(this).removeClass('bcolor');
+        })
+        
+        $('#result2 p').on('click', function(){
+            $(this).toggleClass('bcolor');
+        })
+        
+        $('#result3 p').on('click', function(){
+            a = $(this).hasClass('fontSize');
+            if(a){
+                $(this).removeClass('fontSize');
+            }else{
+                $(this).addClass('fontSize');
+            }
+        })
+        
+      /*  $('#result4 p').on('mouseover',function(){      // 마우스를 올렸을 때 반응
+            $(this).addClass('fontSize');
+        })
+        
+        $('#result4 p').on('mouseout',function(){
+            $(this).removeClass('fontSize');
+        })
+        */
+        
+        
+        // hover => mouseover와 mouseout을 합친 것
+        // 때문에 function이 두 개가 온다.
+        $('#result4 p').hover(function(){
+          /*  $(this).addClass('fontSize');
+            $(this).addClass('bcolor');*/
+            $(this).addClass('bc_fs');
+        }, function(){
+          /*  $(this).removeClass('fontSize');
+            $(this).removeClass('bcolor');*/
+            $(this).removeClass('bc_fs');
+        })
+        
+        
+    });
+</script>
+</head>
+<body>
+
+	<div class="box box1">
+	스타일에 .bcolor{background: pink}를 정의한다. <br><br>
+	버튼을 클릭하면 bcolor를 addClass('bcolor')를 실행한다. <br>
+	p태그를 클릭하면 removeClass('bcolor')를 실행한다. <br>
+		<br />
+		
+		<input type="button" value = "확인"/>
+		<div id="result1">
+		    <p>무궁화 꽃이 피었습니다.</p>
+		    <p>무궁화 꽃이 피었습니다.</p>
+		</div>
+	</div>
+	
+	<div class="box box2">
+	p태그를 클릭하면 toggleClass('bcolor')를 수행한다. <br>
+	toggleClass() : addClass()와 removeClass()를 번갈아가면서 수행한다. <br>
+		<br />
+		
+		<input type="button" value = "확인"/>
+		<div id="result2">
+		    <p>무궁화 꽃이 피었습니다.</p>
+		    <p>무궁화 꽃이 피었습니다.</p>
+		</div>
+	</div>
+	
+	<div class="box box3">
+	선택자.hasClass('bcolor') : 해당 선택자에 bcolor클래스가 정의되어 있으면 <br>
+    true를 리턴하고 아니면 false를 리턴한다.
+		<br />
+		
+		<input type="button" value = "확인"/>
+		<div id="result3">
+		    <p>무궁화 꽃이 피었습니다.</p>
+		    <p>무궁화 꽃이 피었습니다.</p>
+		</div>
+	</div>
+	
+	<div class="box box4">
+	선택자.hasClass('bcolor') : 해당 선택자에 bcolor클래스가 정의되어 있으면 <br>
+    true를 리턴하고 아니면 false를 리턴한다.
+		<br />
+		
+		<input type="button" value = "확인"/>
+		<div id="result4">
+		    <p>무궁화 꽃이 피었습니다.</p>
+		    <p>무궁화 꽃이 피었습니다.</p>
+		</div>
+	</div>
+</body>
+</html>

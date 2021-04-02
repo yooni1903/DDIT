@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+<link rel = "stylesheet" href = "../css/public.css">
+<style>
+
+</style>
+
+<script>
+$(function(){
+	// lprod테이블의 데이터 조회 
+	$('input').on('click', function(){
+		$.ajax({
+			url : '../0203/lprod.jsp',
+//				type : 'get',  type이 get이라면 생락 가능하다 (type 대신에 method를 써도 된다.)
+//				date : ''      data는 없기 때문에 생략한다.
+            success : function(res){
+                
+            	code = "";
+            	$.each(res, function(i, v){
+            		code += `<option value='${v.gu}'>${v.nm}</option>`;
+            	})
+            	
+            	$('#lprod').html(code);
+            	$('#lprod').trigger('change');	
+            },
+            error : function(xhr){
+                alert("상태 : " + xhr.status)
+            },
+            dataType : 'json'
+		})
+	})
+	
+	
+	// lprod에서 하나를 선택하면 change이벤트를 준다.
+	// option의 value값을 가져온다 - val()
+	// queryForList를 수행
+	$('#lprod').on('change', function(){
+//			$('#lprod option:selected') 라고 해도 되지만..!
+		lprod_gu = $('option:selected', this).val();
+		
+		$.ajax({
+			url : 'prodName.jsp',
+			type : 'post',
+			data : {"gu" : lprod_gu},
+			success : function(res){
+				
+				code ="";
+				if(res.sw == "ok"){
+				
+					$.each(res.datas, function(i, v){
+						code += "<option value='" + v.id + "'>" + v.name + "</option>";
+						
+					})
+				}else{
+					code += "<option value='0'>데이터 없음</option>";
+				}
+				$('#prod').html(code);
+				$('#prod').trigger('change');
+				
+				
+			},
+			error : function(xhr){
+				alert("상태 : " + xhr.status);		// 200(응답은 성공했으나, json파일을 parsing할 때 오류가 남 - "", '', 주석 등등), 404, 500
+			},
+			dataType : 'json'
+			
+			// url, type, dat, success, error, dataType의 순서는 섞여도 상관 없음! 콤마(,)만 주의할 것
+			// error는 생략 가능하다 (모든 테스트가 끝나고 에러 확인이 필요없다면 그때 지워도 됨)
+		})
+	})
+	
+	// prod를 change하면 해당 제품의 detail을 출력한다.
+	// 선택한 option의 value값을 가져온다. -> val()
+	// queryForObject를 수행
+	$('#prod').on('change', function(){
+	
+	  //$('#prod option:selected')
+		prod_id = $('option:selected', this).val();
+		if(prod_id == 0){
+			$('#detail').empty();
+			// 데이터 없는 경우 이미지(img)를 출력
+			$("<img>", {
+				'src' : '../images/spongebob.png',
+				'width' : '100px',
+				'height' : '100px'
+			}).appendTo($('#detail'));
+			
+			return false;	// return false를 해야 밑 코드가 실행되지 않는다.
+			
+		}
+		$.ajax({
+			url : 'prodDetail.jsp',
+			type : 'post',
+			data : {"id" : prod_id},
+			success : function(res){
+				
+				code = "<table class='table table-striped' border='1'";
+				code += "<tr><td>항목</td><td>내용</td></tr>";
+				code += "<tr><td>PROD_ID</td><td>" + res.id + "</td></tr>";
+				code += "<tr><td>PROD_NAME</td><td>" + res.name + "</td></tr>";
+				code += "<tr><td>PROD_LGU</td><td>" + res.lgu + "</td></tr>";
+				code += "<tr><td>PROD_BUYER</td><td>" + res.buyer + "</td></tr>";
+				code += "<tr><td>PROD_COST</td><td>" + res.cost + "</td></tr>";
+				code += "<tr><td>PROD_PRICE</td><td>" + res.price + "</td></tr>";
+				code += "<tr><td>PROD_SALE</td><td>" + res.sale + "</td></tr>";
+				code += "<tr><td>PROD_OUTLINE</td><td>" + res.outline + "</td></tr>";
+				code += "<tr><td>PROD_DETAIL</td><td>" + res.detail + "</td></tr>";
+				code += "</table>";
+				
+				$('#detail').html(code);
+				
+			},
+			error : function(xhr){
+				alert('상태 : ' + xhr.status);
+			},
+			dataType : 'json'
+		})
+	})
+	
+	
+})
+</script>
+</head>
+<body>
+<br />
+<input type="button" value="확인" />
+<br />
+	<div class="container">
+	  <form>
+	    <div class="form-group">
+	      <label for="lprod">제품분류명</label>
+	      <select class="form-control" id="lprod">
+	      </select>
+	      <br>
+	      
+	      <label for="prod">상푸명</label>
+	      <select class="form-control" id="prod">
+	      </select>
+	      
+	    </div>
+	   </form>
+	 </div>
+	<br /><br />
+	<div class="container" id="detail">
+	
+	</div>
+</body>
+</html>

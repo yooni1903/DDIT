@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<style>
+	form{
+		border : 2px solid blue;
+		padding : 10px;
+		margin : 30px;
+		width : 300px;
+	}
+	label{
+		display : inline-block;
+		width : 100px;
+		height : 30px;
+	}
+	input[type = submit]{
+		margin-left : 20%;
+	}
+	h1{
+		margin : 30px;
+		border : 2px solid blue;
+	}
+</style>
+</head>
+<body>
+<pre>
+&lt;input type = "submit" value = "전송">
+&lt;button type = "submit">전송&lt;/button>
+&lt;input type = "image" src = "../images/check.png" alt = "전송">
+&lt;button>전송&lt;/button>
+</pre>
+	<h1>전송기능 수행</h1>
+	<form action = "submit.jsp" method = "post">
+		<label>아이디</label>
+		<input type = "text" name = "id"><br>
+		
+		<label>이름</label>
+		<input type = "text" name = "name"><br>
+		
+		<input type = "submit" value = "전송">
+		<button type = "submit">전송</button>
+		<input type = "image" src = "../images/check.png" alt = "전송">
+		<button>전송</button>
+<!-- 		<input> 텍스트를 입력하는 창이 뜬다. -->
+	</form>
+	
+<pre>
+&lt;input type = "button" value = "확인">
+&lt;button type = "button">확인&lt;/button>
+</pre>
+	
+	<h1>전송기능 수행하지 않음</h1>
+	<form action = "submit.jsp" method = "post">
+		<label>아이디</label>
+		<input name = "id"><br> 
+<!-- 		<input>의 type = "text"는 생략가능하다 -->
+		
+		<label>이름</label>
+		<input  name = "name"><br>
+		
+		<input type = "button" value = "확인" onclick = "alert('안녕하세요')">
+		<button type = "button" onclick = "alert('Hello~~')">확인</button>
+	</form>
+</body>
+</html>

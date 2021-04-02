@@ -1,0 +1,5 @@
+@charset "utf-8";
+pre{
+	background-color : #78EAFF;
+	font-size : 1.5em; <!--또는 px로 적어도 된다.-->
+}

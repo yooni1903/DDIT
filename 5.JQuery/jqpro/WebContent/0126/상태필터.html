@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.5.1.min.js"></script>
+<style>
+
+</style>
+
+<script>
+	$(function(){
+		$('.box1 > input:button').on('click', function(){
+			$('#result1 *:disabled').css('border', '3px solid red');
+		})
+        
+        $('.box2 > input:button').on('click', function(){
+            /*$.each($(':checkbox:ckecked'), function(){
+                
+            })*/
+            res = "";
+            $('#result2 :checkbox:checked').each(function(){
+               res += $(this).val() + " ";
+            })
+            res += "를(을) 선택하셨습니다.";
+//            alert(res);
+            $('#result2 div').html(res).css('background', '#7353fa');
+            $('#result2 div').css('font-size', '1.5em');
+            
+        })
+	})
+</script>
+</head>
+<body>
+
+	<div class="box box1">
+	$('#result1 *:disabled').css('border', '3px solid red');
+		<br />
+		
+		<input type="button" value = "확인"/>
+		<div id="result1">
+			<form> 
+                <input type="text" name="id" ><br>
+                <input type="password" name="pass"  ><br>
+
+                <select name="disSelect" disabled>
+                      <option>Option1</option>
+                      <option>Option2</option>
+                      <option>Option3</option>
+                      <option>Option4</option>
+                </select>
+                <br>
+                <textarea disabled name="enTextarea" rows="10" cols="20" >text</textarea><br>
+                <input type="button" value="확인" onclick="alert('Hello')"> <br>
+
+            </form>
+		</div>
+	</div>
+	
+	<div class="box box2">
+		<br />
+		
+		<input type="button" value = "확인"/>
+		<div id="result2">
+			<form>
+                취 미 :
+                 <input type="checkbox" name="hobby" value="여행" checked >여행
+                <input type="checkbox" name="hobby" value="장기">장기
+                <input type="checkbox" name="hobby" value="바둑">바둑
+                <input type="checkbox" name="hobby" value="독서" >독서
+                <input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+            </form>
+            
+            <div></div>
+		</div>
+	</div>
+</body>
+</html>

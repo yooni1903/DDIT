@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<style>
+	p{
+		font-size: 1.5em;
+	}
+	
+	p:hover{
+		color : red;
+	}
+	
+	p:active{
+		background: pink;
+	}
+	
+	p[title]{ /* title을 가진 p만 선택 (첫번째, 두번째)*/
+		background: crimson;
+			
+	}
+	
+	p[title = 무궁화]{ /* 무궁화 title을 가진 p만 선택 (첫번째)*/
+		color : white;
+	}
+	/* p.pp */
+	p[class = pp]{ /* (첫번째, 세번째) */
+		font-weight: bold;
+		font-size: 2.0em;
+	}
+	
+	span{
+		color : red;
+	}
+</style>
+</head>
+<body>
+	<pre>
+	속성선택자
+	
+	p{
+		font-size: 1.5em;
+	}
+	
+	p:hover{
+		color : red;
+	}
+	
+	p:active{
+		background: pink;
+	}
+	
+	<span>p[title]</span>{ /* title을 가진 p만 선택 (첫번째, 두번째)*/
+		background: crimson;
+			
+	}
+	
+	<span>p[title = 무궁화]</span>{ /* 무궁화 title을 가진 p만 선택 (첫번째)*/
+		color : white;
+	}
+	/* p.pp */
+	<span>p[class = pp]</span>{ /* (첫번째, 세번째) */
+		font-weight: bold;
+		font-size: 2.0em;
+	}
+	</pre>
+	<p class = "pp" title = "무궁화">무궁화 꽃이 피었습니다.</p>
+	<p title = "함박눈">함박눈이 펑펑 내려옵니다.</p>
+	<p class = "pp">온 세상이 하얗게 변합니다.</p>
+</body>
+</html>

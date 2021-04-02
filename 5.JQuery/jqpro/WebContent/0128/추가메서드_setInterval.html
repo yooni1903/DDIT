@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.5.1.min.js"></script>
+<style>
+    img{
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+<script>
+    $(function(){
+        $('#start').on('click', function(){
+            
+//            $(this).hide();
+            $(this).css('display', 'none');
+            
+//            $(this).prop('disabled', true);
+            a = setInterval(function(){
+                $('img:first').appendTo($('#result1'));
+                console.log(a);
+            }, 500);
+        })
+        
+        $('#stop').on('click', function(){
+            clearInterval(a);
+            
+            // prop - 종료를 눌렀을 때 비활성화된 시작버튼을 다시 활성화시킴
+//            $('#start').prop('disabled', false);
+            $('#start').css('display', 'inline-block');
+        })
+        
+        
+        $('.box2 input:button').on('click', function(){
+            // 문자배열 생성
+            arr = ["Hello", "happy!!", "Good!~!", "좋은 아침", "행복한 하루~!!!!", "햇빛은 쨍쨍", "모래알은 반짝"];
+            // arr[0] arr[1] arr[4]
+            rnd = Math.floor(Math.random() * arr.length);
+            // prepend는 앞으로
+//            $(arr[rnd]).prependTo($('#result2'));
+//                prepend는 객체만 가능
+//            $('#result2').html(arr[rnd]);
+            
+            ptag = $('<p></p>', { 
+                'class': 'pp',
+                'text':arr[rnd]
+            });
+            
+            // prepend는 앞 또는 위에 생성된다.
+            $('#result2').prepend(ptag);
+//            $(ptag).prepend($('#result2'));
+        })
+    });
+</script>
+</head>
+<body>
+
+	<div class="box box1">
+    setInterval(function(){ }, millisec) <br>
+	정해진 매 시간마다 반복적으로 function 실행 <br>
+        
+    setInterval(function(){ }, 1000); =&gt; 1초마다 function 수행 <br>
+		<br />
+		
+		<input id="start" type="button" value = "시작"/>
+		<input id="stop" type="button" value = "종료"/>
+		<div id="result1">
+		    <img src="../images/Lighthouse.jpg" alt="Lighthouse.jpg">
+		    <img src="../images/Hydrangeas.jpg" alt="Hydrangeas.jpg">
+		    <img src="../images/sw_on.png" alt="sw_on.png">
+		    <img src="../images/가위_우.png" alt="가위_우.png">
+		    <img src="../images/게시판수정.png" alt="게시판수정.png">
+		</div>
+	</div>
+   <div class="box box2">
+    setInterval(function(){ }, millisec) <br>
+	정해진 매 시간마다 반복적으로 function 실행 <br>
+        
+    setInterval(function(){ }, 1000); =&gt; 1초마다 function 수행 <br>
+		<br />
+		
+		<input  type="button" value = "확인"/>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

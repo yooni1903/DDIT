@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.5.1.min.js"></script>
+<style>
+
+</style>
+
+<script>
+	$(function(){
+		$('.box1 input[value=hidden]').on('click', function(){
+            
+            res = "";
+            $('p:hidden').each(function(i){
+                res += $(this).text() + "<br>";
+            })
+            
+            $('#hid').html(res);
+        })
+        
+        $('.box1 input[value=visible]').on('click', function(){
+            res = "";
+            $('p:visible').each(function(){
+                res += $(this).text() + "<br>";
+            })
+            $('#visi').html(res);
+        })
+        
+        
+        
+        // ----------------------- box2 -------------------------------
+        
+        $('.box2 input[value=hidden]').on('click', function(){
+            res = "Hidden 결과 <br><br>";
+            $('#testForm > *:hidden').each(function(i){
+                // 태그를 비교
+//                console.log(this.tagName);
+                if(this.tagName == "INPUT"){
+                  res += this.tagName + "객체 : [" + $(this).attr('name') + " : " + $(this).val() + "]<br>";
+                }else{
+                  res += this.tagName + "객체 : " + $(this).text() + "<br>";
+                }
+                
+           
+            })
+            
+            $('#hid2').html(res);
+            
+            
+        })
+        
+        
+        $('.box2 input[value=visible]').on('click', function(){
+            res = "Visible 결과 <br><br>";
+            $('#testForm > *:visible').each(function(i){
+                 if(this.tagName == "INPUT"){
+                     //type이 radio - 남자 여자 중 선택한 것을 가져온다.
+                     vtype = $(this).attr('type');
+                     if(vtype == 'radio'){
+                        aa = $(this).prop('checked');
+                         console.log(aa);
+                         if(aa){
+                             res += $(this).attr('name') + " : " + $(this).val() + "<br>";
+                         }
+                     }else{
+                         res += this.tagName + "객체 : [" + $(this).attr('name') + " : " + $(this).val() + "]<br>";
+                     }
+                }else if(this.tagName != "BR"){
+                     res += this.tagName + "객체 : " + $(this).text() + "<br>";
+                }
+            })
+            
+            $('#visi2').html(res);
+        })
+	});
+</script>
+</head>
+<body>
+
+	<div class="box box1">
+	
+		<br />
+		
+		<input type="button" value = "hidden"/>
+		<input type="button" value = "visible"/>
+		<div id="result1">
+		    <p> 보이는 문단</p>
+            <p style="visibility:hidden;">숨겨진 문단</p>
+            <p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+            <p style="opacity:0;"> 투명한 문단</p>
+            
+            <div id="hid"></div>    <!--2-->
+            <div id="visi"></div>   <!--1 3 4-->
+		    
+		</div>
+	</div>
+	
+	<div class="box box2">
+	    $('#result').html() = result1에 있는 내용을 가져와라 / $('#result1').html(res) = result1에 res를 출력하라<br>
+	    text() <br>
+	    $(this).val() / $(#id).val("aaaa") <br>
+	     <br>
+	    속성값 가져오기 <br>
+	    attr('name')  / attr('name', 'korea') : name을 korea로 바꿔라 <br>
+        attr('type')  / attr('type', 'password') : type을 password로 바꿔라 <br>
+        <br>
+        상태값 가져오기 - checked, selected, disabled, multiple, readonly <br>
+        prop(상태값) - true 또는 false를 리턴한다. <br>
+        $(this).prop('checked')  . $(this).prop('checked', false) : checked를 해제하라 <br>
+        $('select').prop('multiple') / $(select).prop('multiple', true) : multiple로 설정하라 <br>
+        $(this).prop('readonly')  / $(this).prop('readonly', true) <br>
+		<br />
+		
+		<input type="button" value = "hidden"/>
+		<input type="button" value = "visible"/>
+		<div id="result2">
+            <form id="testForm"> 
+                <input type="hidden" name="userAge" value="33">
+                <input type="hidden" name="userCity" value="대전">
+                
+                I D : <input type="text" name="userID" value="hong">  
+                <span style="display:none">ID가 중복됩니다. </span> <br>  
+                
+                이름 : <input type="text" name="userName" value="홍길동">   
+                <span style="visibility:hidden">이름을 입력하세요</span><br>  
+                
+                성별 : <input type="radio" name="sung" value="남" checked>남자  
+                <input type="radio" name="sung" value="여">여자  
+            </form>
+            
+            <div id="hid2"></div>  
+            <div id="visi2"></div> 
+		</div>
+	</div>
+</body>
+</html>
