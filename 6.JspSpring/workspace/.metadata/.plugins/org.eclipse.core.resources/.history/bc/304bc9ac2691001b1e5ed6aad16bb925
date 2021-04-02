@@ -1,0 +1,13 @@
+package kr.or.ddit.member.service;
+
+import kr.or.ddit.vo.MemberVO;
+
+public class MemberServiceImpl implements IMemberService {
+
+	@Override
+	public MemberVO retrieveMember(String mem_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

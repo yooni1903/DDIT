@@ -1,0 +1,14 @@
+SELECT EMPNO,
+       ENAME,
+       SAL,
+       DEPTNO,
+       (SELECT ROUND(AVG(SAL),2)
+          FROM EMP 
+         WHERE DEPTNO = A.DEPTNO) AS AVG_SAL,
+       (SELECT MAX(SAL)
+          FROM EMP 
+         WHERE DEPTNO = A.DEPTNO) AS MAX_SAL,
+       (SELECT MIN(SAL)
+          FROM EMP
+         WHERE DEPTNO = A.DEPTNO) AS MIN_SAL
+ FROM EMP A;  
